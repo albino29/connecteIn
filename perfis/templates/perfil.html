@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1> Detalhe Perfil - {{ perfil.nome }} </h1>
+	<h3>Telefone - {{ perfil.telefone|default:"Não informado" }}</h3>
+
+	<a href="{% url 'convidar' perfil.id %}">
+		Convidar
+	</a>
+</body>
+</html>

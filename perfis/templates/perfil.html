@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1> Detalhe Perfil - {{ perfil.nome }} </h1>
-	<h3>Telefone - {{ perfil.telefone|default:"Não informado" }}</h3>
+{% extends "header.html" %}
+{% block body %}
 
-	<a href="{% url 'convidar' perfil.id %}">
-		Convidar
-	</a>
-</body>
-</html>
+	<div class="row">
+		<dir class="col-lg-12">
+			<h2 style="margin-top: 0">{{ perfil.nome }}</h2>
+			<address>
+				<strong>{{ perfil.nome_empresa }}</strong>
+				<abbr title="Telefone">Tel.:</abbr>{{ perfil.telefone}} 
+			</address>
+			{% if is_contato %}
+				<div class="well well-sm">
+					Vocês estão conectados
+				</div>
+			{% else %}
+				<a href="{% url 'convidar' perfil.id %}">
+					Convidar
+				</a>
+			{% endif %}
+		</dir>
+	</div>
+
+{% endblock %}
